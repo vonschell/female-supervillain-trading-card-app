@@ -36,12 +36,15 @@ def add():
 @app.route("/delete")
 def delete():
   return app.send_static_file("deletevillain.html")
-####
 
-#ADD CODE: add /api/villains route here
+app.route("/api/villains/", methods=["GET"])
+def get_villains():
+  villains=Villain.query.all()
+  data = []
+  return
 
-@app.route("/addVillain", methods=["POST"])
-def add_user():
+@app.route("/api/villains/add", methods=["POST"])
+def add_villain():
   errors = []
   name = request.form.get("name")
 
@@ -70,16 +73,16 @@ def add_user():
     new_villain = Villain(name=name,description=description, interests=interests, url=url)
     db.session.add(new_villain)
     db.session.commit()
-    return render_template("villain.html", villains=Villain.query.all())
+    return 
 
-@app.route("/deleteVillain", methods=["POST"])
-def delete_user():
+@app.route("/api/villains/delete", methods=["POST"])
+def delete_villain():
   name = request.form.get("name", "")
   villain = Villain.query.filter_by(name=name).first()
   if villain:
     db.session.delete(villain)
     db.session.commit()
-    return render_template("villain.html", villains=Villain.query.all())
+    return 
   else:
     return jsonify({"errors": ["Oops! A villain with that name doesn't exist!"]})
 
