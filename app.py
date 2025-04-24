@@ -89,7 +89,8 @@ def delete_villain():
 @app.route("/api/", methods=["GET"])
 def get_endpoints():
   endpoints = {
-    "/api/villains/": "GET - Retrieves all villain data from the database"
+    "/api/villains/": "GET - Retrieves all villain data from the database",
+    "/api/villains/delete": "POST - Deletes the villain mentioned if the villain exists in the database",
   }
 
 # Run the flask server
