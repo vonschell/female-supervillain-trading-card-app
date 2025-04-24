@@ -90,7 +90,7 @@ def delete_villain():
   if villain:
     db.session.delete(villain)
     db.session.commit()
-    return 
+    return jsonify({"status" : "success"})
   else:
     return jsonify({"errors": ["Oops! A villain with that name doesn't exist!"]})
 
