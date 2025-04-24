@@ -86,6 +86,11 @@ def delete_villain():
   else:
     return jsonify({"errors": ["Oops! A villain with that name doesn't exist!"]})
 
+@app.route("/api/", methods=["GET"])
+def get_endpoints():
+  endpoints = {
+    "/api/villains/": "GET - Retrieves all villain data from the database"
+  }
 
 # Run the flask server
 if __name__ == "__main__":
