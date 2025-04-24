@@ -93,6 +93,7 @@ def get_endpoints():
     "/api/villains/delete": "POST - Deletes the villain mentioned if the villain exists in the database",
     "/api/villains/add": "POST - adds a villain to the database"
   }
+  return jsonify(endpoints)
 
 # Run the flask server
 if __name__ == "__main__":
