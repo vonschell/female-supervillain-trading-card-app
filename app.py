@@ -81,7 +81,7 @@ def add_villain():
     new_villain = Villain(name=name,description=description, interests=interests, url=url)
     db.session.add(new_villain)
     db.session.commit()
-    return 
+    return jsonify({"status" : "success"})
 
 @app.route("/api/villains/delete", methods=["POST"])
 def delete_villain():
