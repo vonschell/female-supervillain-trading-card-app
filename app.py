@@ -41,7 +41,15 @@ app.route("/api/villains/", methods=["GET"])
 def get_villains():
   villains=Villain.query.all()
   data = []
-  return
+  for villain in villains:
+    data.append({
+      "name" : villain.name,
+      "description" : villain.description,
+      "interests" : villain.interests,
+      "url" : villain.url,
+      "date_added" : villain.date_added
+    })
+  return jsonify(data)
 
 @app.route("/api/villains/add", methods=["POST"])
 def add_villain():
