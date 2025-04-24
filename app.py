@@ -37,7 +37,7 @@ def add():
 def delete():
   return app.send_static_file("deletevillain.html")
 
-app.route("/api/villains/", methods=["GET"])
+@app.route("/api/villains/", methods=["GET"])
 def get_villains():
   villains=Villain.query.all()
   data = []
